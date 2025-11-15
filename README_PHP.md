@@ -2,7 +2,7 @@
 
 ## Sistema Integral de Gestión para Clínicas Dentales
 
-![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![Version](https://img.shields.io/badge/version-2.0.0-blue.svg)
 ![PHP](https://img.shields.io/badge/PHP-7.4%2B-777BB4?logo=php)
 ![MySQL](https://img.shields.io/badge/MySQL-5.7%2B-4479A1?logo=mysql)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
@@ -15,6 +15,7 @@
 
 ### ✅ Implementado en esta Versión
 
+#### Funcionalidades Core
 - **✓ Sistema MVC Completo**: Arquitectura limpia y escalable
 - **✓ Autenticación de Usuarios**: Login seguro con hash de contraseñas
 - **✓ Gestión de Pacientes**: CRUD completo con historial médico
@@ -27,6 +28,17 @@
 - **✓ Validación de Datos**: Sanitización y validación robusta
 - **✓ Gestión de Sesiones**: Control seguro de sesiones
 - **✓ Paginación**: Sistema de paginación integrado
+
+#### Características Avanzadas ⭐ NUEVO
+- **✓ API REST Completa**: Autenticación con Bearer Token, endpoints para pacientes, citas y autenticación
+- **✓ Portal del Paciente**: Acceso autónomo para pacientes, agendamiento de citas, historial
+- **✓ Sistema de Reportes**: Reportes avanzados con gráficos, exportación a CSV
+- **✓ Módulo de Laboratorio**: Gestión de órdenes a laboratorios dentales
+- **✓ Odontograma 2D Interactivo**: Canvas HTML5 con 32 dientes, superficies dentales
+- **✓ Odontograma 3D**: Visualización 3D con Three.js, rotación orbital
+- **✓ WhatsApp API**: Recordatorios automáticos, confirmaciones, campañas
+- **✓ Sistema de Notificaciones**: Recordatorios automatizados, cumpleaños, pacientes inactivos
+- **✓ Exportación a PDF**: Presupuestos, recibos de pago, reportes
 
 ### 📋 Módulos Disponibles
 
@@ -61,6 +73,51 @@
    - Facturación básica
    - Métodos de pago
    - Historial de pagos
+
+7. **API REST** ✅
+   - Autenticación con Bearer Token
+   - Endpoints para pacientes, citas, autenticación
+   - Documentación completa
+   - CORS habilitado
+
+8. **Portal del Paciente** ✅
+   - Autenticación con número de paciente + fecha de nacimiento
+   - Dashboard con estadísticas personales
+   - Visualización de citas programadas e historial
+   - Agendamiento autónomo de citas
+   - Acceso a documentos y perfil
+
+9. **Sistema de Reportes** ✅
+   - Reportes de citas por período
+   - Estadísticas diarias/mensuales
+   - Exportación a CSV
+   - Gráficos interactivos (AJAX)
+
+10. **Módulo de Laboratorio** ✅
+    - Gestión de órdenes a laboratorios
+    - Tracking de estados (solicitado, en proceso, listo, entregado)
+    - Generación automática de números de orden
+    - Estadísticas de laboratorio
+
+11. **Odontograma Interactivo** ✅
+    - **2D**: Canvas HTML5, 32 dientes, 5 superficies por diente
+    - **3D**: Three.js con WebGL, rotación orbital, selección interactiva
+    - Marcadores de condiciones (sano, caries, restauración, corona, etc.)
+    - Guardado en base de datos
+
+12. **Notificaciones y WhatsApp** ✅
+    - WhatsApp Business API via Twilio
+    - Recordatorios automáticos de citas (día anterior)
+    - Felicitaciones de cumpleaños
+    - Seguimiento a pacientes inactivos
+    - Campañas promocionales masivas
+    - Sistema de notificaciones in-app
+
+13. **Exportación de Documentos** ✅
+    - Generación de PDFs (presupuestos, recibos, reportes)
+    - Soporte para FPDF o fallback básico
+    - Headers personalizados con logo de clínica
+    - Formatos profesionales
 
 ---
 
@@ -165,28 +222,48 @@ innovadent/
 │   │   ├── Database.php     # Conexión PDO
 │   │   ├── Model.php        # Clase base de modelos
 │   │   ├── Controller.php   # Clase base de controladores
-│   │   └── Router.php       # Sistema de rutas
-│   ├── controllers/         # Controladores
+│   │   ├── Router.php       # Sistema de rutas
+│   │   └── Api.php          # Clase base para API REST ⭐
+│   ├── controllers/         # Controladores Web
 │   │   ├── AuthController.php
 │   │   ├── DashboardController.php
 │   │   ├── PatientsController.php
-│   │   └── AppointmentsController.php
+│   │   ├── AppointmentsController.php
+│   │   ├── PortalController.php          # Portal del Paciente ⭐
+│   │   ├── ReportsController.php         # Sistema de Reportes ⭐
+│   │   └── LaboratoryController.php      # Laboratorio Dental ⭐
+│   ├── controllers/api/     # Controladores API REST ⭐
+│   │   ├── AuthApiController.php
+│   │   ├── PatientsApiController.php
+│   │   └── AppointmentsApiController.php
 │   ├── models/              # Modelos
 │   │   ├── User.php
 │   │   ├── Patient.php
-│   │   └── Appointment.php
+│   │   ├── Appointment.php
+│   │   └── Laboratory.php               # Modelo de Laboratorio ⭐
+│   ├── helpers/             # Clases Helper ⭐
+│   │   ├── WhatsAppHelper.php           # Integración WhatsApp
+│   │   ├── NotificationHelper.php       # Sistema de notificaciones
+│   │   └── PdfHelper.php                # Generación de PDFs
 │   └── views/               # Vistas
 │       ├── layouts/
 │       ├── auth/
 │       ├── dashboard/
 │       ├── patients/
-│       └── appointments/
+│       ├── appointments/
+│       ├── portal/          # Vistas del Portal ⭐
+│       ├── reports/         # Vistas de Reportes ⭐
+│       └── laboratory/      # Vistas de Laboratorio ⭐
 ├── public/                  # Archivos públicos
 │   ├── css/
 │   ├── js/
+│   │   └── odontograma/     # JavaScript del Odontograma ⭐
+│   │       ├── odontograma-2d.js        # Canvas 2D
+│   │       └── odontograma-3d.js        # Three.js 3D
 │   ├── images/
 │   ├── uploads/
-│   ├── index.php           # Punto de entrada
+│   ├── index.php           # Punto de entrada web
+│   ├── api.php             # Punto de entrada API ⭐
 │   └── .htaccess
 ├── database/
 │   ├── schema.sql          # Schema MySQL completo
@@ -196,6 +273,7 @@ innovadent/
 │   ├── logs/
 │   ├── cache/
 │   └── sessions/
+├── API_DOCUMENTATION.md    # Documentación completa de API ⭐
 └── README_PHP.md           # Este archivo
 ```
 
@@ -396,31 +474,26 @@ mysql -u root -p innovadent < database/migrations/add_products.sql
 
 ## 🔄 Próximas Mejoras
 
-### Versión 1.1 (Planificado)
+### Versión 2.1 (Planificado)
 
-- [ ] Módulo de Tratamientos completo
-- [ ] Facturación electrónica (CFDI/FE)
-- [ ] Odontograma 2D interactivo
-- [ ] Reportes PDF con gráficos
-- [ ] Búsqueda avanzada
-- [ ] Exportación de datos (Excel/CSV)
-
-### Versión 1.2 (Planificado)
-
-- [ ] API REST
-- [ ] Notificaciones en tiempo real
-- [ ] Integración WhatsApp
-- [ ] Recordatorios automáticos
-- [ ] Multi-idioma
+- [ ] Módulo de Tratamientos completo con plan de tratamiento
+- [ ] Facturación electrónica (CFDI México / Factura Electrónica)
+- [ ] Búsqueda avanzada multi-criterio
+- [ ] Importación/Exportación a Excel
+- [ ] Multi-idioma (inglés, portugués)
 - [ ] Modo oscuro
+- [ ] Backup automático en la nube
 
-### Versión 2.0 (Futuro)
+### Versión 3.0 (Futuro)
 
-- [ ] Odontograma 3D
-- [ ] Inteligencia Artificial
-- [ ] App móvil
-- [ ] Videoconsulta
-- [ ] Blockchain para registros
+- [ ] Inteligencia Artificial para diagnóstico asistido
+- [ ] Predicción de ausentismo con ML
+- [ ] App móvil nativa (iOS/Android)
+- [ ] Videoconsulta integrada
+- [ ] Firma digital para consentimientos
+- [ ] Blockchain para registros médicos
+- [ ] Integración con escáneres intraorales
+- [ ] Radiografías digitales integradas
 
 ---
 
@@ -494,19 +567,39 @@ of this software and associated documentation files (the "Software")...
 
 ## ⭐ Changelog
 
-### Version 1.0.0 (2025-01-15)
+### Version 2.0.0 (2025-01-15) - MAJOR UPDATE
 
-#### Agregado
+#### Agregado - Características Avanzadas 🚀
+- ✅ **API REST Completa**: Bearer Token auth, endpoints documentados
+- ✅ **Portal del Paciente**: Autenticación, dashboard, agendamiento autónomo
+- ✅ **Sistema de Reportes**: Reportes avanzados con exportación CSV
+- ✅ **Módulo de Laboratorio**: Gestión completa de órdenes dentales
+- ✅ **Odontograma 2D**: Canvas HTML5 interactivo, 32 dientes
+- ✅ **Odontograma 3D**: Three.js con WebGL, rotación orbital
+- ✅ **WhatsApp API**: Twilio integration, recordatorios automáticos
+- ✅ **Sistema de Notificaciones**: Cron jobs, cumpleaños, seguimiento
+- ✅ **Exportación PDF**: FPDF integration, presupuestos, recibos
+
+#### Tecnologías Nuevas
+- Three.js para visualización 3D
+- Canvas API para odontograma 2D
+- Twilio WhatsApp Business API
+- FPDF para generación de PDFs
+- AJAX para gráficos dinámicos
+
+### Version 1.0.0 (2025-01-10)
+
+#### Agregado - Core System
 - ✅ Sistema MVC completo
 - ✅ Autenticación de usuarios
 - ✅ Gestión de pacientes
 - ✅ Agenda de citas
 - ✅ Dashboard interactivo
 - ✅ Sistema de roles
-- ✅ Base de datos optimizada
+- ✅ Base de datos optimizada (76 tablas)
 - ✅ Interfaz responsive
 
-#### Tecnologías
+#### Tecnologías Base
 - PHP 7.4+ puro
 - MySQL 8.0
 - Bootstrap 5.3
