@@ -321,29 +321,66 @@ El sistema cuenta con **76 tablas** organizadas en 11 módulos:
 
 ### Tecnologías Frontend
 
-- **Bootstrap 5.3**: Framework CSS
-- **Font Awesome 6.4**: Iconos
+- **Tabler.io v1.0.0-beta19**: Framework de administración moderno basado en Bootstrap 5
+- **Tabler Icons v2.44.0**: Iconografía SVG moderna (2000+ iconos)
+- **Bootstrap 5**: Framework CSS base
 - **jQuery 3.7**: Manipulación DOM
-- **Chart.js**: Gráficos (próximamente)
+- **Three.js**: Renderizado 3D para odontograma
+- **Canvas API**: Odontograma 2D interactivo
+- **UI Avatars API**: Generación dinámica de avatars
 
-### Capturas de Pantalla
+### Diseño Moderno con Tabler.io
 
-#### Login
-- Sistema de autenticación moderno
-- Validación de credenciales
+INNOVADENT utiliza **Tabler.io**, un framework de administración profesional que proporciona:
+
+- **Diseño Limpio**: Interfaz minimalista y moderna
+- **Componentes UI**: Cards, badges, alerts, modals prediseñados
+- **Navegación Intuitiva**: Sidebar vertical con iconos Tabler
+- **Responsive**: Adaptable a todos los dispositivos
+- **Accesibilidad**: Componentes accesibles por defecto
+- **Temas**: Soporte para tema claro/oscuro
+
+#### Características Visuales
+
+##### Login
+- Diseño centrado con gradiente de fondo
+- Card flotante con sombra
+- Input icons integrados
+- Mensajes de error elegantes
 - Diseño responsive
 
-#### Dashboard
-- Estadísticas en tiempo real
-- Citas del día
-- Accesos rápidos
-- Gráficos visuales
+##### Dashboard Principal
+- Stats cards con hover effects
+- Tabla mejorada para citas del día
+- Avatars dinámicos para usuarios
+- Badges con outline para estados
+- Empty states con iconos y acciones
+- Progress bars segmentados
 
-#### Gestión de Pacientes
-- Lista con búsqueda
-- Paginación
-- Ficha completa
-- Historial médico
+##### Portal del Paciente
+- Diseño distintivo con gradiente púrpura
+- Navbar superior con dropdown de usuario
+- Cards de estadísticas personalizadas
+- Lista de citas con bordes coloridos
+- Acciones rápidas en grid
+
+##### Gestión de Pacientes
+- Tabla striped con avatars
+- Búsqueda en tiempo real
+- Dropdown menu con múltiples acciones
+- Paginación mejorada con iconos
+- Empty state para lista vacía
+- Botones de importación
+
+### Paleta de Colores
+
+- **Primary**: #0066CC (Azul INNOVADENT)
+- **Secondary**: #00CC66 (Verde INNOVADENT)
+- **Portal**: #667eea (Púrpura Portal Pacientes)
+- **Success**: #2fb344
+- **Warning**: #f76707
+- **Danger**: #d63939
+- **Info**: #4299e1
 
 ---
 
@@ -466,9 +503,11 @@ mysql -u root -p innovadent < database/migrations/add_products.sql
 | **Backend** | PHP 7.4+ (Puro, sin frameworks) |
 | **Patrón** | MVC (Model-View-Controller) |
 | **Base de Datos** | MySQL 8.0+ |
-| **Frontend** | Bootstrap 5.3, jQuery 3.7 |
+| **Frontend** | Tabler.io 1.0.0, Bootstrap 5, jQuery 3.7 |
+| **UI Framework** | Tabler.io (Dashboard Admin Template) |
+| **Iconografía** | Tabler Icons 2.44.0 (2000+ iconos SVG) |
+| **3D Rendering** | Three.js (Odontograma 3D) |
 | **Servidor Web** | Apache 2.4+ con mod_rewrite |
-| **Iconos** | Font Awesome 6.4 |
 
 ---
 
@@ -579,13 +618,17 @@ of this software and associated documentation files (the "Software")...
 - ✅ **WhatsApp API**: Twilio integration, recordatorios automáticos
 - ✅ **Sistema de Notificaciones**: Cron jobs, cumpleaños, seguimiento
 - ✅ **Exportación PDF**: FPDF integration, presupuestos, recibos
+- ✅ **Tabler.io UI**: Interfaz modernizada con framework profesional
 
 #### Tecnologías Nuevas
-- Three.js para visualización 3D
-- Canvas API para odontograma 2D
-- Twilio WhatsApp Business API
-- FPDF para generación de PDFs
-- AJAX para gráficos dinámicos
+- **Tabler.io v1.0.0-beta19**: Framework UI moderno
+- **Tabler Icons v2.44.0**: Iconografía SVG profesional
+- **Three.js**: Visualización 3D para odontograma
+- **Canvas API**: Odontograma 2D interactivo
+- **Twilio WhatsApp Business API**: Mensajería automatizada
+- **FPDF**: Generación de documentos PDF
+- **AJAX**: Gráficos dinámicos y búsqueda en tiempo real
+- **UI Avatars API**: Generación dinámica de avatars
 
 ### Version 1.0.0 (2025-01-10)
 
