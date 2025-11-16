@@ -6,6 +6,7 @@
 
 // Configuración de la base de datos
 define('DB_HOST', 'localhost');
+define('DB_PORT', '3307');  // Puerto personalizado de MySQL
 define('DB_NAME', 'innovadent');
 define('DB_USER', 'root');
 define('DB_PASS', '');

@@ -4,6 +4,7 @@
  */
 class Database {
     private $host = DB_HOST;
+    private $port = DB_PORT;
     private $dbname = DB_NAME;
     private $username = DB_USER;
     private $password = DB_PASS;
@@ -17,7 +18,7 @@ class Database {
      * Constructor - Establece conexión con la base de datos
      */
     public function __construct() {
-        $dsn = "mysql:host={$this->host};dbname={$this->dbname};charset={$this->charset}";
+        $dsn = "mysql:host={$this->host};port={$this->port};dbname={$this->dbname};charset={$this->charset}";
 
         $options = [
             PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
