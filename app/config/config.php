@@ -13,8 +13,8 @@ define('DB_CHARSET', 'utf8mb4');
 
 // Configuración de la aplicación
 define('APP_NAME', 'INNOVADENT');
-define('APP_VERSION', '1.0.0');
-define('APP_URL', 'http://localhost/innovadent');
+define('APP_VERSION', '2.0.0');
+define('APP_URL', 'http://innovadent.local');
 define('APP_ENV', 'development'); // development, production
 
 // Configuración de rutas
