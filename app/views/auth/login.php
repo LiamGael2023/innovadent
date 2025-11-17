@@ -98,16 +98,20 @@
                         </div>
                     <?php endif; ?>
 
-                    <?php if (isset($_SESSION['flash'])): ?>
-                        <div class="alert alert-<?php echo $_SESSION['flash']['type'] ?? 'info'; ?> alert-dismissible" role="alert">
-                            <div class="d-flex">
-                                <div>
-                                    <i class="ti ti-info-circle icon alert-icon"></i>
+                    <?php if (isset($_SESSION['flash']) && is_array($_SESSION['flash'])): ?>
+                        <?php foreach ($_SESSION['flash'] as $key => $flash): ?>
+                            <?php if (is_array($flash) && isset($flash['message'])): ?>
+                                <div class="alert alert-<?php echo $flash['type'] ?? 'info'; ?> alert-dismissible" role="alert">
+                                    <div class="d-flex">
+                                        <div>
+                                            <i class="ti ti-info-circle icon alert-icon"></i>
+                                        </div>
+                                        <div><?php echo htmlspecialchars($flash['message']); ?></div>
+                                    </div>
+                                    <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
                                 </div>
-                                <div><?php echo $_SESSION['flash']['message']; ?></div>
-                            </div>
-                            <a class="btn-close" data-bs-dismiss="alert" aria-label="close"></a>
-                        </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
                         <?php unset($_SESSION['flash']); ?>
                     <?php endif; ?>
 
