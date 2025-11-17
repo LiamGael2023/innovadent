@@ -77,7 +77,7 @@ class LaboratoryController extends Controller {
 
         if ($orderId) {
             $this->flash('success', 'Orden de laboratorio creada exitosamente.', 'success');
-            $this->redirect('/laboratory/view/' . $orderId);
+            $this->redirect('/laboratory/show/' . $orderId);
         } else {
             $this->flash('error', 'Error al crear la orden.', 'danger');
             $this->redirect('/laboratory/create');
@@ -87,7 +87,7 @@ class LaboratoryController extends Controller {
     /**
      * Ver detalles de orden
      */
-    public function view($id) {
+    public function show($id) {
         $order = $this->laboratoryModel->find($id);
 
         if (!$order) {
@@ -124,6 +124,6 @@ class LaboratoryController extends Controller {
             $this->flash('error', 'Error al actualizar el estado.', 'danger');
         }
 
-        $this->redirect('/laboratory/view/' . $id);
+        $this->redirect('/laboratory/show/' . $id);
     }
 }

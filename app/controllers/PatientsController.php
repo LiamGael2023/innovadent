@@ -96,7 +96,7 @@ class PatientsController extends Controller {
 
         if ($patientId) {
             $this->flash('success', 'Paciente creado exitosamente.', 'success');
-            $this->redirect('/patients/view/' . $patientId);
+            $this->redirect('/patients/show/' . $patientId);
         } else {
             $this->flash('error', 'Error al crear el paciente.', 'danger');
             $this->redirect('/patients/create');
@@ -106,7 +106,7 @@ class PatientsController extends Controller {
     /**
      * Ver detalles del paciente
      */
-    public function view($id) {
+    public function show($id) {
         $patient = $this->patientModel->find($id);
 
         if (!$patient) {
@@ -180,7 +180,7 @@ class PatientsController extends Controller {
         // Actualizar
         if ($this->patientModel->update($id, $data)) {
             $this->flash('success', 'Paciente actualizado exitosamente.', 'success');
-            $this->redirect('/patients/view/' . $id);
+            $this->redirect('/patients/show/' . $id);
         } else {
             $this->flash('error', 'Error al actualizar el paciente.', 'danger');
             $this->redirect('/patients/edit/' . $id);

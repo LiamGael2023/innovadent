@@ -14,7 +14,15 @@
         </div>
         <div class="col-auto ms-auto d-print-none">
             <div class="text-muted">
-                <div class="fw-bold"><?php echo strftime('%A, %d de %B de %Y', time()); ?></div>
+                <div class="fw-bold">
+                    <?php
+                    $days = ['Sunday' => 'Domingo', 'Monday' => 'Lunes', 'Tuesday' => 'Martes', 'Wednesday' => 'Miércoles', 'Thursday' => 'Jueves', 'Friday' => 'Viernes', 'Saturday' => 'Sábado'];
+                    $months = ['January' => 'Enero', 'February' => 'Febrero', 'March' => 'Marzo', 'April' => 'Abril', 'May' => 'Mayo', 'June' => 'Junio', 'July' => 'Julio', 'August' => 'Agosto', 'September' => 'Septiembre', 'October' => 'Octubre', 'November' => 'Noviembre', 'December' => 'Diciembre'];
+                    $day = $days[date('l')];
+                    $month = $months[date('F')];
+                    echo $day . ', ' . date('d') . ' de ' . $month . ' de ' . date('Y');
+                    ?>
+                </div>
                 <div class="small">Último acceso: <?php echo date('H:i'); ?></div>
             </div>
         </div>
@@ -198,7 +206,7 @@
                                             </td>
                                             <td>
                                                 <div class="btn-list flex-nowrap">
-                                                    <a href="<?php echo APP_URL; ?>/appointments/view/<?php echo $apt['id']; ?>" class="btn btn-sm btn-icon">
+                                                    <a href="<?php echo APP_URL; ?>/appointments/show/<?php echo $apt['id']; ?>" class="btn btn-sm btn-icon">
                                                         <i class="ti ti-eye icon"></i>
                                                     </a>
                                                 </div>
