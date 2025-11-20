@@ -350,7 +350,7 @@ INSERT INTO roles (name, slug, description, is_system) VALUES
 -- Insertar usuario admin por defecto
 -- Password: admin123 (debe cambiarse en producción)
 INSERT INTO users (clinic_id, username, email, password_hash, first_name, last_name, is_doctor, is_active)
-VALUES (1, 'admin', 'admin@innovadent.com', '$2y$12$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Administrador', 'Sistema', FALSE, TRUE);
+VALUES (1, 'admin', 'admin@innovadent.com', '$2y$12$TROgQgxePbGN49dRX8HTauIjJQZqtDLp2ZJw29YN2no1yTPDHna2m', 'Administrador', 'Sistema', FALSE, TRUE);
 
 -- Asignar rol admin al usuario
 INSERT INTO user_roles (user_id, role_id) VALUES (1, 1);

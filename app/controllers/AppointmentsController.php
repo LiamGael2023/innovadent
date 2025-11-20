@@ -106,7 +106,7 @@ class AppointmentsController extends Controller {
     /**
      * Ver detalles de la cita
      */
-    public function view($id) {
+    public function show($id) {
         $appointment = $this->appointmentModel->find($id);
 
         if (!$appointment) {
@@ -142,7 +142,7 @@ class AppointmentsController extends Controller {
             $this->flash('error', 'Error al actualizar el estado.', 'danger');
         }
 
-        $this->redirect('/appointments/view/' . $id);
+        $this->redirect('/appointments/show/' . $id);
     }
 
     /**
